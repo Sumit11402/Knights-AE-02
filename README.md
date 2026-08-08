@@ -52,6 +52,17 @@ you will usually see something like
 local https://localhost:5173/
 ```
 ---
+## App
+
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/marotipatre/x402-Project.git
+```
+
+
+
 
 
 
