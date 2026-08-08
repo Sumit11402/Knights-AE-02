@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindWell AI Sidepanel</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-badge">🔬</div>
+        <div class="brand-text">
+          <h1>FindWell</h1>
+          <span class="subtitle">Shared AI Memory</span>
+        </div>
+      </div>
+      <button id="theme-toggle" class="btn-icon" title="Toggle Light/Dark">🌙</button>
+    </header>
+
+    <!-- Auth View (Shown if not logged in) -->
+    <section id="auth-section" class="card auth-card">
+      <h2>🔐 FindWell Account</h2>
+      <p class="small-text">Sign in to sync your mobile APK & extension AI memory.</p>
+      
+      <div class="tab-buttons">
+        <button id="tab-login" class="tab-btn active">Sign In</button>
+        <button id="tab-signup" class="tab-btn">Sign Up</button>
+      </div>
+
+      <form id="auth-form">
+        <input type="email" id="auth-email" placeholder="Email Address" required />
+        <input type="password" id="auth-password" placeholder="Password" required />
+        <button type="submit" id="auth-submit-btn" class="btn-primary">Sign In to FindWell</button>
+      </form>
+      <div id="auth-status" class="status-msg"></div>
+    </section>
+
+    <!-- Main Workspace (Shown when logged in) -->
+    <main id="main-section" class="main-content hidden">
+      <!-- User Profile Header -->
+      <div class="user-bar">
+        <span id="user-email-display">user@findwell.ai</span>
+        <button id="logout-btn" class="btn-link">Sign Out</button>
+      </div>
+
+      <!-- Active Project Selector -->
+      <div class="card project-selector-card">
+        <label for="project-select">Active Research Project:</label>
+        <select id="project-select">
+          <option value="">Loading Projects...</option>
+        </select>
+      </div>
+
+      <!-- Webpage Quick Actions -->
+      <div class="card quick-actions-card">
+        <div class="card-header">🌐 Current Webpage Context</div>
+        <div id="page-title-preview" class="page-preview">Click 'Analyze Page' to scan active tab</div>
+        <div class="action-buttons">
+          <button id="btn-analyze-page" class="btn-secondary">📄 Analyze Page</button>
+          <button id="btn-save-paper" class="btn-secondary">📌 Save to APK</button>
+        </div>
+      </div>
+
+      <!-- 4-LLM Chat Container -->
+      <section class="chat-section">
+        <div class="chat-header">
+          <span>🤖 4-LLM Consensus Chat</span>
+          <span class="badge-active">Synced</span>
+        </div>
+
+        <div id="chat-messages" class="chat-messages">
+          <div class="message assistant">
+            👋 Hello! I am <strong>FindWell</strong>. I remember your research projects, notes, and chats across your mobile phone and browser. What are we researching today?
+          </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Ask FindWell AI about this paper or project..." rows="2"></textarea>
+          <button id="btn-send-chat" class="btn-send">➔</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="main.dart" type="DartTestRunConfigurationType" factoryName="Dart Test" singleton="false">
+    <option name="filePath" value="$PROJECT_DIR$/findwell_app/lib/main.dart" />
+    <method v="2" />
+  </configuration>
+</component>

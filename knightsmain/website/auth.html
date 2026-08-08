@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In & Sign Up — FindWell AI Assistant</title>
+  <meta name="description" content="Sign in or create a FindWell account to sync AI research projects, papers, and 4-LLM chats across browser extension and mobile app.">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .auth-card {
+      background: var(--bg-card, #ffffff);
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 16px;
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+    .auth-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .auth-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #7C3AED, #2563EB);
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .auth-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+    }
+    .auth-subtitle {
+      font-size: 13px;
+      color: #64748b;
+    }
+    .tab-switcher {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: #64748b;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #7C3AED;
+      color: white;
+      box-shadow: 0 2px 4px rgba(124, 58, 237, 0.2);
+    }
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .form-input {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .form-input:focus {
+      border-color: #7C3AED;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    }
+    .btn-submit {
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #7C3AED, #2563EB);
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover {
+      opacity: 0.95;
+    }
+    .auth-status {
+      font-size: 12px;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="Logo">
+      AutoResearchClaw
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pipeline.html">Pipeline</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="papers.html">Papers</a></li>
+      <li><a href="getting-started.html">Get Started</a></li>
+      <li><a href="auth.html" class="active" style="color: #7C3AED; font-weight: 700;">Account Sign In</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="auth-icon">🔒</div>
+      <h1 class="auth-title">FindWell Account Sync</h1>
+      <span class="auth-subtitle">Cross-Device Shared AI Memory across Web, Extension & Mobile APK</span>
+    </div>
+
+    <!-- Tab Switcher -->
+    <div class="tab-switcher">
+      <button type="button" class="tab-btn active" id="tab-signin">Sign In</button>
+      <button type="button" class="tab-btn" id="tab-signup">Sign Up</button>
+    </div>
+
+    <form class="auth-form" id="web-auth-form">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" id="auth-email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" id="auth-password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn-submit" id="auth-submit-btn">Sign In to FindWell</button>
+    </form>
+
+    <div class="auth-status" id="auth-status-msg"></div>
+  </div>
+</div>
+
+<script>
+  const SUPABASE_URL = 'https://gjxycmdicnilsuwljxzy.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqeHljbWRpY25pbHN1d2xqeHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxMTY3NTYsImV4cCI6MjEwMTY5Mjc1Nn0.Na89rLCfc42FP43TXOYq2huW5wH4aoJzh_FVqKhVCLA';
+
+  let mode = 'login';
+  const tabSignIn = document.getElementById('tab-signin');
+  const tabSignUp = document.getElementById('tab-signup');
+  const submitBtn = document.getElementById('auth-submit-btn');
+  const authForm = document.getElementById('web-auth-form');
+  const statusMsg = document.getElementById('auth-status-msg');
+
+  tabSignIn.addEventListener('click', () => {
+    mode = 'login';
+    tabSignIn.classList.add('active');
+    tabSignUp.classList.remove('active');
+    submitBtn.innerText = 'Sign In to FindWell';
+  });
+
+  tabSignUp.addEventListener('click', () => {
+    mode = 'signup';
+    tabSignUp.classList.add('active');
+    tabSignIn.classList.remove('active');
+    submitBtn.innerText = 'Create FindWell Account';
+  });
+
+  // Check stored session
+  const storedSession = localStorage.getItem('findwell_session');
+  if (storedSession) {
+    try {
+      const sess = JSON.parse(storedSession);
+      if (sess && sess.user) {
+        renderLoggedIn(sess.user.email);
+      }
+    } catch(e) {}
+  }
+
+  function renderLoggedIn(email) {
+    authForm.style.display = 'none';
+    document.querySelector('.tab-switcher').style.display = 'none';
+    statusMsg.innerHTML = `
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 16px; text-align: left;">
+        <div style="font-weight: 700; color: #047857; font-size: 14px; margin-bottom: 4px;">✓ Account Connected</div>
+        <div style="font-size: 12px; color: #065F46; word-break: break-all; margin-bottom: 12px;">${email}</div>
+        <button id="btn-web-logout" style="width: 100%; padding: 10px; font-weight: 700; border-radius: 6px; background: #ef4444; color: white; border: none; cursor: pointer;">Sign Out</button>
+      </div>
+    `;
+    document.getElementById('btn-web-logout').addEventListener('click', () => {
+      localStorage.removeItem('findwell_session');
+      location.reload();
+    });
+  }
+
+  authForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('auth-email').value.trim();
+    const password = document.getElementById('auth-password').value.trim();
+
+    statusMsg.style.color = '#7C3AED';
+    statusMsg.innerText = 'Connecting to FindWell Cloud...';
+    submitBtn.disabled = true;
+
+    try {
+      if (mode === 'signup') {
+        try {
+          await fetch(`${SUPABASE_URL}/auth/v1/admin/users`, {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password, email_confirm: true })
+          });
+        } catch (_) {}
+      }
+
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+        method: 'POST',
+        headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error_description || data.msg || 'Authentication failed');
+
+      localStorage.setItem('findwell_session', JSON.stringify({ user: data.user, access_token: data.access_token }));
+      statusMsg.style.color = '#10B981';
+      statusMsg.innerText = '✓ Authenticated successfully!';
+      setTimeout(() => {
+        renderLoggedIn(data.user.email);
+      }, 500);
+    } catch(err) {
+      statusMsg.style.color = '#EF4444';
+      statusMsg.innerText = `Error: ${err.message}`;
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

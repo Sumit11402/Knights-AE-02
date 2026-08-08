@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Research Agent - Current Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9ff",
+                        "surface-container-low": "#f1f4f9",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "on-secondary-fixed-variant": "#394857",
+                        "inverse-surface": "#2d3135",
+                        "on-primary-container": "#a1cfcf",
+                        "error": "#ba1a1a",
+                        "tertiary": "#3b3d2c",
+                        "on-secondary-container": "#556474",
+                        "primary-container": "#2d5a5a",
+                        "secondary": "#50606f",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "on-surface": "#181c20",
+                        "primary": "#124343",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "surface-tint": "#396666",
+                        "surface-bright": "#f7f9ff",
+                        "outline-variant": "#c0c8c7",
+                        "inverse-primary": "#a1cfcf",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ebeef3",
+                        "tertiary-container": "#535442",
+                        "surface": "#f7f9ff",
+                        "secondary-fixed": "#d4e4f6",
+                        "on-tertiary-container": "#c8c8b1",
+                        "surface-container-highest": "#e0e3e8",
+                        "inverse-on-surface": "#eef1f6",
+                        "secondary-container": "#d1e1f4",
+                        "tertiary-fixed": "#e4e4cc",
+                        "surface-variant": "#e0e3e8",
+                        "on-surface-variant": "#404848",
+                        "on-primary": "#ffffff",
+                        "outline": "#707978",
+                        "primary-fixed": "#bcebeb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a1cfcf",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b8c8da",
+                        "surface-container-high": "#e5e8ed",
+                        "surface-dim": "#d7dadf",
+                        "on-primary-fixed-variant": "#204e4e",
+                        "on-error": "#ffffff",
+                        "on-background": "#181c20",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0d1d2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "md": "16px",
+                        "item-gap": "12px",
+                        "container-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-full flex justify-center items-center overflow-hidden">
+<!-- Extension Container -->
+<div class="w-[400px] h-[600px] bg-background relative flex flex-col shadow-2xl rounded-xl overflow-hidden border border-outline-variant">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-padding h-14 max-w-[400px] mx-auto bg-surface border-b border-outline-variant z-10 shrink-0">
+<h2 class="font-h2 text-h2 text-primary tracking-tight">Research Agent</h2>
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-container-padding flex flex-col gap-lg bg-surface-bright pb-24">
+<!-- Current Page Context Card -->
+<section class="flex flex-col gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Current Page Context</span>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col gap-md relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-tint/5 to-transparent pointer-events-none"></div>
+<!-- Page Info -->
+<div class="flex items-start gap-md relative z-10">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylized, minimalist 3D icon representing a generic website favicon, specifically an open book or document, rendered in subtle pale greens and cool grays on a light background. High-quality professional design suitable for a modern AI research tool interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMWW63rOViBR0HETCa_y1bsdpe3yjRqoWa5vCtZS7J3-oblAqB5t4xb3pfB2jmY4NACSVavhOdWHCYlT8v76mP6MgRGFQe8q28u1mb7MWzwEhARziNl8YrxVOQ09iufcDF5m64PVkci8qPyDU2BAuxQ-V9EGDtdHaPZZ85ZnzY5mItNnePlmhRjbgWxmB6LRHNcCXnnTEmmpG8OIN8c82SNf4vr1-We3P-FhSTj36I3oc0QDRvT0R3">
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="font-h3 text-h3 text-on-surface truncate">AI Research Article</h3>
+<span class="font-body-sm text-body-sm text-secondary truncate">example.com</span>
+</div>
+<span class="material-symbols-outlined text-[#8DA399]" data-icon="check_circle" data-weight="fill">check_circle</span>
+</div>
+<!-- Context Actions -->
+<div class="flex items-center gap-sm mt-xs relative z-10">
+<button class="flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface border border-outline-variant rounded-lg py-sm px-md font-label-md text-label-md transition-colors flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="quick_reference_all">quick_reference_all</span>
+                            Research this page
+                        </button>
+<button class="flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface border border-outline-variant rounded-lg py-sm px-md font-label-md text-label-md transition-colors flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="library_add">library_add</span>
+                            Use as source
+                        </button>
+</div>
+</div>
+</section>
+<!-- Main Input Area -->
+<section class="flex flex-col gap-base mt-auto">
+<!-- Toggle Context -->
+<div class="flex items-center justify-between py-sm px-md bg-[#F5F5DC]/30 border border-outline-variant rounded-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="link">link</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Current page will be included as context.</span>
+</div>
+<!-- Toggle Switch ON -->
+<button class="w-10 h-5 bg-primary rounded-full relative transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-1">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-200"></div>
+</button>
+</div>
+<!-- Query Input -->
+<div class="relative w-full group">
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-md pr-12 font-body-md text-body-md text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all resize-none min-h-[100px]" placeholder="Ask a question about this page or start new research..."></textarea>
+<!-- Send Button -->
+<button class="absolute bottom-md right-md bg-primary hover:bg-primary-container text-white p-2 rounded-lg transition-colors flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+</button>
+</div>
+<!-- Suggestions -->
+<div class="flex flex-wrap gap-sm">
+<button class="bg-[#F5F5DC] text-[#2F3337] border border-outline-variant rounded-md px-sm py-1 font-body-sm text-body-sm hover:bg-[#ebebce] transition-colors">Summarize key findings</button>
+<button class="bg-[#F5F5DC] text-[#2F3337] border border-outline-variant rounded-md px-sm py-1 font-body-sm text-body-sm hover:bg-[#ebebce] transition-colors">Fact-check claims</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface border-t border-outline-variant max-w-[400px] mx-auto pb-6">
+<a class="flex flex-col items-center justify-center text-primary font-bold w-full py-sm active:scale-95 duration-150 relative" href="#">
+<div class="absolute -top-3 w-12 h-1 bg-primary rounded-b-full"></div>
+<span class="material-symbols-outlined mb-1" data-icon="add_circle" data-weight="fill">add_circle</span>
+<span class="font-label-md text-label-md">New Research</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-lg w-full py-sm transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="library_books">library_books</span>
+<span class="font-label-md text-label-md">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low rounded-lg w-full py-sm transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="history">history</span>
+<span class="font-label-md text-label-md">History</span>
+</a>
+</nav>
+</div>
+</body></html>

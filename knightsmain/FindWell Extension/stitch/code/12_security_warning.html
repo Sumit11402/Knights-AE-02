@@ -1,0 +1,207 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Research Agent - Prompt Injection Warning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9ff",
+                        "surface-container-low": "#f1f4f9",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "on-secondary-fixed-variant": "#394857",
+                        "inverse-surface": "#2d3135",
+                        "on-primary-container": "#a1cfcf",
+                        "error": "#ba1a1a",
+                        "tertiary": "#3b3d2c",
+                        "on-secondary-container": "#556474",
+                        "primary-container": "#2d5a5a",
+                        "secondary": "#50606f",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "on-surface": "#181c20",
+                        "primary": "#124343",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "surface-tint": "#396666",
+                        "surface-bright": "#f7f9ff",
+                        "outline-variant": "#c0c8c7",
+                        "inverse-primary": "#a1cfcf",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ebeef3",
+                        "tertiary-container": "#535442",
+                        "surface": "#f7f9ff",
+                        "secondary-fixed": "#d4e4f6",
+                        "on-tertiary-container": "#c8c8b1",
+                        "surface-container-highest": "#e0e3e8",
+                        "inverse-on-surface": "#eef1f6",
+                        "secondary-container": "#d1e1f4",
+                        "tertiary-fixed": "#e4e4cc",
+                        "surface-variant": "#e0e3e8",
+                        "on-surface-variant": "#404848",
+                        "on-primary": "#ffffff",
+                        "outline": "#707978",
+                        "primary-fixed": "#bcebeb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a1cfcf",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b8c8da",
+                        "surface-container-high": "#e5e8ed",
+                        "surface-dim": "#d7dadf",
+                        "on-primary-fixed-variant": "#204e4e",
+                        "on-error": "#ffffff",
+                        "on-background": "#181c20",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0d1d2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "md": "16px",
+                        "item-gap": "12px",
+                        "container-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #FDFDFB; color: #181c20; }
+        .amber-alert-bg { background-color: #fff8e6; }
+        .amber-alert-border { border-color: #ffe08a; }
+        .amber-alert-text { color: #8a6a00; }
+        .amber-alert-icon { color: #d97706; }
+        
+        .success-bg { background-color: #E8ECE9; }
+        .success-text { color: #2D5A5A; }
+    </style>
+</head>
+<body class="font-body-md w-[400px] h-[600px] mx-auto overflow-hidden flex flex-col relative bg-background">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-padding h-14 max-w-[400px] mx-auto docked full-width top-0 border-b border-outline-variant bg-surface">
+<div class="font-h2 text-h2 text-primary font-bold tracking-tight">
+            Research Agent
+        </div>
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full p-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button aria-label="Settings" class="text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full p-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small, professional user profile avatar showing a modern, minimal illustration or high-quality professional headshot suitable for a corporate AI research tool context. Soft lighting, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXbE2mgqydX0vJGbbJxkb-y4sDwR7tIrwhJpYrGAas4d3IGutdhgpTRjfiGrFE9sUHXExgMqAenHDqgOCaL3yVh86Fhcjon6nX-y_WKTA39wZE-tOPdH2HVGjqcVmmPANljKmUjv4KTtGSo-cZFooI4EshDbgXZ-inRAVflXxoBtrqiUu3z058lAOmE88eFxzxn4_bIzHzbzHAAol_V96_3-J7UDo1ftwje_gtqfmo4yCuT_burGKX">
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 overflow-y-auto w-full">
+<!-- Alert Banner -->
+<div class="amber-alert-bg border-b amber-alert-border px-container-padding py-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined amber-alert-icon text-[20px] mt-0.5">warning</span>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md amber-alert-text font-semibold mb-1">⚠ Potential prompt injection detected</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight mb-2">
+                        Instructions found on this page were treated as untrusted content and ignored.
+                    </p>
+<button class="font-label-md text-label-md text-primary underline hover:text-primary-container transition-colors">
+                        View details
+                    </button>
+</div>
+<button aria-label="Dismiss alert" class="text-on-surface-variant hover:bg-black/5 rounded-full p-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<div class="p-container-padding flex flex-col gap-lg">
+<!-- Status Header -->
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-2 success-text">
+<span class="material-symbols-outlined text-[#8DA399] text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md text-[#8DA399] uppercase tracking-wider font-bold">Research Complete</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 mins ago</span>
+</div>
+<!-- Main Result Card -->
+<div class="bg-[#FDFDFB] border border-[#D1D9D4] rounded-lg overflow-hidden">
+<div class="bg-[#E8ECE9] px-md py-sm border-b border-[#D1D9D4]">
+<h2 class="font-h3 text-h3 text-on-surface">Synthesis: Quantum Machine Learning</h2>
+</div>
+<div class="p-md flex flex-col gap-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Recent advancements indicate a significant reduction in error rates when applying variational quantum eigensolvers to neural network optimization. However, the identified source material contained conflicting directives which have been filtered.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-[#F5F5DC] text-[#2F3337] px-2 py-1 rounded-[6px] font-label-sm text-label-sm">Quantum Computing</span>
+<span class="bg-[#F5F5DC] text-[#2F3337] px-2 py-1 rounded-[6px] font-label-sm text-label-sm">Neural Networks</span>
+<span class="bg-[#F5F5DC] text-[#2F3337] px-2 py-1 rounded-[6px] font-label-sm text-label-sm">Optimization</span>
+</div>
+<div class="mt-2 pt-md border-t border-[#D1D9D4] flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 Trusted Sources Used</span>
+<button class="text-primary font-label-md text-label-md hover:underline">View Citations</button>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-sm">
+<button class="flex-1 bg-[#2D5A5A] text-white font-label-md text-label-md py-2 px-4 rounded-[12px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export Findings
+                </button>
+<button class="flex-1 bg-[#E8ECE9] text-[#2F3337] border border-[#D1D9D4] font-label-md text-label-md py-2 px-4 rounded-[12px] flex items-center justify-center gap-2 hover:bg-[#d8ddd9] transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                    Share
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface max-w-[400px] border-t border-outline-variant docked full-width bottom-0">
+<button aria-label="New Research" class="flex flex-col items-center justify-center text-primary font-bold hover:bg-surface-container-low p-2 rounded-lg transition-colors w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-sm text-label-sm">New Research</span>
+</button>
+<button aria-label="Library" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low p-2 rounded-lg transition-colors w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">library_books</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</button>
+<button aria-label="History" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low p-2 rounded-lg transition-colors w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</button>
+</nav>
+</body></html>

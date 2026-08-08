@@ -1,0 +1,213 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Research Agent - History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9ff",
+                        "surface-container-low": "#f1f4f9",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "on-secondary-fixed-variant": "#394857",
+                        "inverse-surface": "#2d3135",
+                        "on-primary-container": "#a1cfcf",
+                        "error": "#ba1a1a",
+                        "tertiary": "#3b3d2c",
+                        "on-secondary-container": "#556474",
+                        "primary-container": "#2d5a5a",
+                        "secondary": "#50606f",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "on-surface": "#181c20",
+                        "primary": "#124343",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "surface-tint": "#396666",
+                        "surface-bright": "#f7f9ff",
+                        "outline-variant": "#c0c8c7",
+                        "inverse-primary": "#a1cfcf",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ebeef3",
+                        "tertiary-container": "#535442",
+                        "surface": "#f7f9ff",
+                        "secondary-fixed": "#d4e4f6",
+                        "on-tertiary-container": "#c8c8b1",
+                        "surface-container-highest": "#e0e3e8",
+                        "inverse-on-surface": "#eef1f6",
+                        "secondary-container": "#d1e1f4",
+                        "tertiary-fixed": "#e4e4cc",
+                        "surface-variant": "#e0e3e8",
+                        "on-surface-variant": "#404848",
+                        "on-primary": "#ffffff",
+                        "outline": "#707978",
+                        "primary-fixed": "#bcebeb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a1cfcf",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b8c8da",
+                        "surface-container-high": "#e5e8ed",
+                        "surface-dim": "#d7dadf",
+                        "on-primary-fixed-variant": "#204e4e",
+                        "on-error": "#ffffff",
+                        "on-background": "#181c20",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0d1d2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "md": "16px",
+                        "item-gap": "12px",
+                        "container-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Component -->
+<header class="bg-surface dark:bg-surface font-h3 text-h3 docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-container-padding h-14 max-w-[400px] mx-auto z-40 fixed left-0 right-0">
+<div class="font-h2 text-h2 text-primary dark:text-primary-fixed-dim tracking-tight">
+            Research Agent
+        </div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant cursor-pointer hover:opacity-80 transition-opacity" data-alt="A macro shot of a sleek, dark metallic texture with very subtle brushing. The lighting is moody and dramatic, focusing on the fine grain of the material. The overall palette is muted charcoal and silver, creating a premium, modern light-mode profile placeholder aesthetic. Highly detailed, 8k resolution, minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHowcF9_V87Aew5SC2q8G8HlLYJ6pwV-fe087x1GbVM4IihpwJFsAxnXXecq-emKCV8reC4LFUBCDzV0qd3w2IH8TdJpJwS76sWHO802_y9OgxF7VehjFSoRSK_QnJrswRMk21FPUKb3bFpyDr54tYwJRD7nLfWAgj_35umpF1U7PvLvKQJg0FMeWLo6WnQcmRSDw7CU5Ub4q5CjwTdmDVp4XboeA1CmkCPbqOVbPm-VNdoBonwshg">
+</div>
+</header>
+<!-- Main Content Area (Mobile constrained) -->
+<main class="flex-1 max-w-[400px] mx-auto w-full pt-16 pb-24 px-container-padding">
+<!-- Header Section -->
+<div class="flex items-center justify-between mb-lg mt-md">
+<h1 class="font-h2 text-h2 text-on-surface">Recent queries</h1>
+<button class="text-primary font-label-md text-label-md hover:text-surface-tint transition-colors active:scale-95 duration-150 bg-transparent border-none cursor-pointer">
+                Clear
+            </button>
+</div>
+<!-- Queries List -->
+<div class="flex flex-col gap-sm">
+<!-- Query Item 1 -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:bg-surface-container-low transition-colors duration-200 active:scale-[0.98] flex items-start gap-md group">
+<div class="flex-shrink-0 mt-0.5 text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-on-surface truncate">Latest AI developments</p>
+<p class="font-body-sm text-on-surface-variant mt-xs truncate">Updated just now</p>
+</div>
+<div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Query Item 2 -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:bg-surface-container-low transition-colors duration-200 active:scale-[0.98] flex items-start gap-md group">
+<div class="flex-shrink-0 mt-0.5 text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-on-surface truncate">Compare React and Flutter</p>
+<p class="font-body-sm text-on-surface-variant mt-xs truncate">2 hours ago</p>
+</div>
+<div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Query Item 3 -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:bg-surface-container-low transition-colors duration-200 active:scale-[0.98] flex items-start gap-md group">
+<div class="flex-shrink-0 mt-0.5 text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-on-surface truncate">Research this article</p>
+<p class="font-body-sm text-on-surface-variant mt-xs truncate">Yesterday, 14:30</p>
+</div>
+<div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Query Item 4 -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:bg-surface-container-low transition-colors duration-200 active:scale-[0.98] flex items-start gap-md group">
+<div class="flex-shrink-0 mt-0.5 text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-on-surface truncate">Explain RAG architecture</p>
+<p class="font-body-sm text-on-surface-variant mt-xs truncate">Yesterday, 09:15</p>
+</div>
+<div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Query Item 5 -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:bg-surface-container-low transition-colors duration-200 active:scale-[0.98] flex items-start gap-md group">
+<div class="flex-shrink-0 mt-0.5 text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-on-surface truncate">Analyze this webpage</p>
+<p class="font-body-sm text-on-surface-variant mt-xs truncate">Oct 24, 2023</p>
+</div>
+<div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="bg-surface dark:bg-surface font-label-md text-label-md docked full-width bottom-0 border-t border-outline-variant dark:border-outline flat no shadows fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-[400px] mx-auto right-0">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-low p-2 rounded-lg active:scale-95 duration-150 flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="add_circle">add_circle</span>
+<span>New Research</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-low p-2 rounded-lg active:scale-95 duration-150 flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="library_books">library_books</span>
+<span>Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container-low dark:hover:bg-surface-container-low p-2 rounded-lg active:scale-95 duration-150 flex-1 bg-surface-container-low">
+<span class="material-symbols-outlined mb-1" data-icon="history" data-weight="fill" style="font-variation-settings: 'FILL' 1;">history</span>
+<span>History</span>
+</button>
+</nav>
+</body></html>

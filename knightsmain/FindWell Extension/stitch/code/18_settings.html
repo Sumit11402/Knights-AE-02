@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Settings - Research Agent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9ff",
+                        "surface-container-low": "#f1f4f9",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "on-secondary-fixed-variant": "#394857",
+                        "inverse-surface": "#2d3135",
+                        "on-primary-container": "#a1cfcf",
+                        "error": "#ba1a1a",
+                        "tertiary": "#3b3d2c",
+                        "on-secondary-container": "#556474",
+                        "primary-container": "#2d5a5a",
+                        "secondary": "#50606f",
+                        "on-primary-fixed": "#002020",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "on-surface": "#181c20",
+                        "primary": "#124343",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "surface-tint": "#396666",
+                        "surface-bright": "#f7f9ff",
+                        "outline-variant": "#c0c8c7",
+                        "inverse-primary": "#a1cfcf",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ebeef3",
+                        "tertiary-container": "#535442",
+                        "surface": "#f7f9ff",
+                        "secondary-fixed": "#d4e4f6",
+                        "on-tertiary-container": "#c8c8b1",
+                        "surface-container-highest": "#e0e3e8",
+                        "inverse-on-surface": "#eef1f6",
+                        "secondary-container": "#d1e1f4",
+                        "tertiary-fixed": "#e4e4cc",
+                        "surface-variant": "#e0e3e8",
+                        "on-surface-variant": "#404848",
+                        "on-primary": "#ffffff",
+                        "outline": "#707978",
+                        "primary-fixed": "#bcebeb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a1cfcf",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b8c8da",
+                        "surface-container-high": "#e5e8ed",
+                        "surface-dim": "#d7dadf",
+                        "on-primary-fixed-variant": "#204e4e",
+                        "on-error": "#ffffff",
+                        "on-background": "#181c20",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0d1d2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "md": "16px",
+                        "item-gap": "12px",
+                        "container-padding": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FDFDFB; /* Warm White Base */
+            color: #181c20;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2D5A5A;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2D5A5A;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+        
+        .toggle-label {
+            width: 36px;
+            height: 20px;
+            background-color: #c0c8c7; /* outline-variant */
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d7dadf;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c0c8c7;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center">
+<!-- Main Container - Chrome Extension Width -->
+<div class="w-full max-w-[400px] bg-background min-h-screen flex flex-col shadow-[0px_4px_12px_rgba(47,51,55,0.08)] relative">
+<!-- TopAppBar (From JSON) -->
+<!-- Active logic: Suppress active highlights on nav as Settings is a trailing action, or highlight nothing -->
+<header class="bg-surface dark:bg-surface flex justify-between items-center w-full px-container-padding h-14 max-w-[400px] mx-auto border-b border-outline-variant dark:border-outline top-0 z-10 sticky">
+<div class="flex items-center gap-2">
+<!-- Back Button for Transactional/Focused Screen -->
+<button aria-label="Go back" class="p-2 -ml-2 text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-h2 text-h2 text-primary dark:text-primary-fixed-dim">Settings</h1>
+</div>
+<div class="flex items-center gap-xs">
+<!-- Trailing Actions from JSON -->
+<button aria-label="Search" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button aria-label="Settings" class="p-2 rounded-full text-primary font-bold hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate researcher in a well-lit, modern minimalist office environment. High-key lighting, soft shadows, wearing business casual attire. Earthy, muted tones emphasizing stability and calm professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfIk0Kal73kZ9zMCsB3285E5TyBNpWKcpwRA1SUHY_YjL4MPB8aqlr_RmTVDNX8inRc9xJH4N79wG7gPSNaiPbZeLIJ0ZmbiDeZqW7H9CSN3qgY_k0IWsmsOXg-A6HY_TultdVNAPZXJ85sOZ597BW07Ffgjl1LI1lncOhVGzGpyEAA-zhIkR237uNTJxxb8TF22V1f0Oa404w4GGL1-BCjmdPIc_UZYnzy0g2g6pOCkdCPOA2cEBe">
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-container-padding py-lg pb-xl space-y-lg">
+<!-- ACCOUNT SECTION -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pl-1">ACCOUNT</h2>
+<div class="bg-[#FDFDFB] border border-outline-variant rounded-xl overflow-hidden divide-y divide-outline-variant">
+<!-- Signed-in Info -->
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">researcher@corp.ai</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pro Plan</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-on-surface-variant transition-colors" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
+</div>
+<!-- Open Web App -->
+<a class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors group block" href="#">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">open_in_new</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Open Web App</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-on-surface-variant transition-colors" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- RESEARCH SECTION -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pl-1">RESEARCH</h2>
+<div class="bg-[#FDFDFB] border border-outline-variant rounded-xl overflow-hidden divide-y divide-outline-variant">
+<!-- Toggle 1 -->
+<div class="p-md flex items-center justify-between">
+<div class="pr-md">
+<p class="font-body-md text-body-md text-on-surface font-medium">Use current page</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Automatically include active tab content in research queries.</p>
+</div>
+<div class="relative inline-block w-[36px] align-middle select-none flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle1" name="toggle1" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+<!-- Toggle 2 -->
+<div class="p-md flex items-center justify-between">
+<div class="pr-md">
+<p class="font-body-md text-body-md text-on-surface font-medium">Auto-context</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fetch related domain knowledge before answering.</p>
+</div>
+<div class="relative inline-block w-[36px] align-middle select-none flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle2" name="toggle2" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full cursor-pointer" for="toggle2"></label>
+</div>
+</div>
+<!-- Toggle 3 -->
+<div class="p-md flex items-center justify-between">
+<div class="pr-md">
+<p class="font-body-md text-body-md text-on-surface font-medium">Save recent queries</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Keep local history for faster follow-ups.</p>
+</div>
+<div class="relative inline-block w-[36px] align-middle select-none flex-shrink-0">
+<input class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle3" name="toggle3" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full cursor-pointer" for="toggle3"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- SAFETY SECTION -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pl-1">SAFETY</h2>
+<div class="bg-[#FDFDFB] border border-outline-variant rounded-xl overflow-hidden divide-y divide-outline-variant">
+<!-- Toggle 1 -->
+<div class="p-md flex items-center justify-between">
+<div class="pr-md">
+<p class="font-body-md text-body-md text-on-surface font-medium">Prompt injection protection</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sanitize inputs from untrusted page sources.</p>
+</div>
+<div class="relative inline-block w-[36px] align-middle select-none flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle4" name="toggle4" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full cursor-pointer" for="toggle4"></label>
+</div>
+</div>
+<!-- Toggle 2 -->
+<div class="p-md flex items-center justify-between">
+<div class="pr-md">
+<p class="font-body-md text-body-md text-on-surface font-medium">Page content protection</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Warn before sending sensitive page data to cloud models.</p>
+</div>
+<div class="relative inline-block w-[36px] align-middle select-none flex-shrink-0">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle5" name="toggle5" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full cursor-pointer" for="toggle5"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest pl-1">ABOUT</h2>
+<div class="bg-[#FDFDFB] border border-outline-variant rounded-xl overflow-hidden divide-y divide-outline-variant">
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer group">
+<p class="font-body-md text-body-md text-on-surface">Version 2.4.1 (Stable)</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded-md">Check for updates</span>
+</div>
+<a class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors group block" href="#">
+<p class="font-body-md text-body-md text-on-surface">Privacy Policy</p>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-on-surface-variant transition-colors text-sm" style="font-variation-settings: 'FILL' 0;">open_in_new</span>
+</a>
+<a class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors group block" href="#">
+<p class="font-body-md text-body-md text-on-surface">Help &amp; Documentation</p>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-on-surface-variant transition-colors text-sm" style="font-variation-settings: 'FILL' 0;">open_in_new</span>
+</a>
+</div>
+</section>
+<div class="pt-lg pb-xl flex justify-center">
+<button class="bg-[#FDFDFB] border border-outline-variant text-[#708090] font-label-md text-label-md px-md py-sm rounded-[12px] hover:bg-surface-container-low transition-colors">
+                    Sign Out
+                </button>
+</div>
+</main>
+<!-- Navigation Shell suppressed because this is a focused Settings screen with a Back button (Linear/Transactional intent) -->
+</div>
+</body></html>
