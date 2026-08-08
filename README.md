@@ -25,16 +25,34 @@ Unlike ordinary research chatbots, FindWell can improve its retrieval prompts an
 
 ## Setup and Installation
 
+
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/marotipatre/x402-Project.git
 ```
 
-2. install dependencies : ```bash
-npm install 
-
+```bash
+cd Knights-AE-02
 ```
+---
+### 2. install dependencies
+
+```bash
+npm install
+```
+---
+### 3. Start the web app 
+```bash
+npm run dev
+```
+---
+you will usually see something like 
+```bash
+local https://localhost:5173/
+```
+---
+
 
 
 
